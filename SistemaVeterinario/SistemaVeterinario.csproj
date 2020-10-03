@@ -12,6 +12,21 @@
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -33,8 +48,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.11.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -46,14 +63,117 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Agenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Agenda.Designer.cs">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgendaHoy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgendaHoy.Designer.cs">
+      <DependentUpon>AgendaHoy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgendaVacuna.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgendaVacuna.Designer.cs">
+      <DependentUpon>AgendaVacuna.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AgendaVacunaTotal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgendaVacunaTotal.Designer.cs">
+      <DependentUpon>AgendaVacunaTotal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DetalleClientes.Designer.cs">
+      <DependentUpon>DetalleClientes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="detalleFichas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="detalleFichas.Designer.cs">
+      <DependentUpon>detalleFichas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FichaPaciente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FichaPaciente.Designer.cs">
+      <DependentUpon>FichaPaciente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Fichas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Fichas.Designer.cs">
+      <DependentUpon>Fichas.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Funciones.cs" />
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Menu.Designer.cs">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Parametros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Parametros.Designer.cs">
+      <DependentUpon>Parametros.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Agenda.resx">
+      <DependentUpon>Agenda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgendaHoy.resx">
+      <DependentUpon>AgendaHoy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgendaVacuna.resx">
+      <DependentUpon>AgendaVacuna.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AgendaVacunaTotal.resx">
+      <DependentUpon>AgendaVacunaTotal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DetalleClientes.resx">
+      <DependentUpon>DetalleClientes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="detalleFichas.resx">
+      <DependentUpon>detalleFichas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FichaPaciente.resx">
+      <DependentUpon>FichaPaciente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fichas.resx">
+      <DependentUpon>Fichas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Menu.resx">
+      <DependentUpon>Menu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Parametros.resx">
+      <DependentUpon>Parametros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -62,6 +182,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -75,6 +196,54 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\IMG-20200803-WA00022.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\boxer.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\bulldog.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\pinsher.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gato.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\search_icon_151112.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrows_sort_icon_151591.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow_left_icon_151610.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\save_78935.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\trash_icon_151036.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notes_edit_modify_icon_143729.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
