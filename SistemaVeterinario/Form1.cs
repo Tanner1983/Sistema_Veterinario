@@ -480,189 +480,28 @@ namespace SistemaVeterinario
             ss.Show();
         }
 
-        private void cmb_falim_Leave(object sender, EventArgs e)
-        {
-           falim = cmb_falim.SelectedIndex.ToString();           
-        }
-
-        private void cmb_raza_SelectedValueChanged(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.Hide();
-            FichaPaciente ss = new FichaPaciente();
-            ss.txt_NomPac.Text = txt_NomPac.Text;
-            ss.Show();
-        }
-
-        private void cmb_raza_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        private void txt_deuda_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (e.KeyChar == (char)(Keys.Enter))
-            {
-                e.Handled = true;
-                SendKeys.Send("{TAB}");
-            }
-        }
-
-        
-
-        private void cmb_esp_Leave(object sender, EventArgs e)
-        {
-            string esp = cmb_esp.SelectedIndex.ToString();
-            DataTable dt = fn.LlenarCmbRaza("SELECT * FROM `tb_raza` WHERE id_especie ="+esp);
-            cmb_raza.DataSource = dt;
-            cmb_raza.ValueMember = "id_raza";
-            cmb_raza.DisplayMember = "nomraza";
-        }
-
-        private void btn_AgregaTest_Click(object sender, EventArgs e)
-        {
-            indtest = cmb_test.SelectedIndex.ToString();
-            /*notest = cmb_test.SelectedText.ToString();*/
-            ListViewItem lista = new ListViewItem(indtest);
-            lista.SubItems.Add(notest);
-            lv_test.Items.Add(lista);
-            cmb_test.SelectedIndex = 0;        
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-            string ind = cmb_desp.SelectedIndex.ToString();
-            string indT = cmb_tipodes.SelectedIndex.ToString();
-            string desp = "",tipo="";
-            if (ind == "0")
-            {
-                desp = "Externa";
-            }
-            else {
-                desp = "Interna";
-            }
-
-            if (indT == "0")
-            {
-                tipo = "Gotas";
-            }
-            else if (indT == "1")
-            {
-                tipo = "Pastillas";
-            }
-            else
-            {
-                tipo = "No aplica";
-            }
-            string a = txt_fechad.Text;
-            DateTime fecha = new DateTime();
-            fecha = DateTime.Parse(a);
-            string x = fecha.ToString("yyyy/MM/dd");
-            ListViewItem item = new ListViewItem();
-            item = lv_desp.Items.Add(ind);
-            item.SubItems.Add(desp);
-            item.SubItems.Add(x);
-            item.SubItems.Add(tipo);
-            item.SubItems.Add(txt_nomdesp.Text);
-            cmb_tipodes.SelectedIndex = -1;
-            txt_nomdesp.Text = "";
-            txt_fechad.Text = "";
-            cmb_desp.SelectedIndex = -1;          
-        }
-
-        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-        }
-
-        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            foreach (GroupBox c in this.Controls.OfType<GroupBox>())
-            {
-                c.Controls.OfType<TextBox>().ToList().ForEach(t => t.Text = "");
-            }
-            txt_fecha.Text = string.Empty;
-            txt_fechad.Text = string.Empty;
-            txt_fechV.Text = string.Empty;
-            lv_desp.Items.Clear();
-            lv_vacunas.Items.Clear();
-            lv_desp.Items.Clear();
-            cmb_raza.SelectedIndex = -1;
-            cmb_esp.SelectedIndex = -1;
-            cmb_vac.SelectedIndex = -1;
-            cmb_test.SelectedIndex = -1;
-            cmb_esp.SelectedIndex = -1;
-            cmb_cast.SelectedIndex = -1;
-        }
-
-        private void FormIngreso_Load(object sender, EventArgs e)
-        {
-            toolback.SetToolTip(this.pick_back, "Vuelve al menú");
-            bool conectado = fn.conectar();
-            if (conectado)
-            {
-               /* MessageBox.Show("Conectado");*/
-            }
-            else
-            {
-                MessageBox.Show("Error al conectar");
-            }
-            /* 	*/
-            DataTable dt = fn.LlenarCmb("SELECT id_especie, nomespecie FROM tb_especie");
-            cmb_esp.DataSource = dt;
-            cmb_esp.ValueMember = "id_especie";
-            cmb_esp.DisplayMember = "nomespecie";
-            cmb_esp.SelectedIndex = -1;
-
-            DataTable dtV = fn.LlenarCmb("SELECT id_vacuna, nomvacuna FROM tb_vacunas");
-            cmb_vac.DataSource = dtV;
-            cmb_vac.ValueMember = "id_vacuna";
-            cmb_vac.DisplayMember = "nomvacuna";
-            cmb_vac.SelectedIndex = -1;
-
-            DataTable dtT = fn.LlenarCmb("SELECT id_test, nomtest FROM tb_test");
-            cmb_test.DataSource = dtT;
-            cmb_test.ValueMember = "id_test";
-            cmb_test.DisplayMember = "nomtest";
-            cmb_test.SelectedIndex = -1;
-
-            prueba = fn.A();
-            prueba = prueba + 1;
-            label28.Text = prueba.ToString();
-
-            txt_deuda.Text = "0";
-        }
-
-        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        private void pick_guardar_Click(object sender, EventArgs e)
         {
             int nchip = Int32.Parse(txt_nchip.Text);
             int fono = Int32.Parse(txt_fono.Text);
             deuda = Int32.Parse(txt_deuda.Text);
             string mail = txt_email.Text;
-            string esp = cmb_esp.SelectedIndex.ToString();                    
+            string esp = cmb_esp.SelectedIndex.ToString();
             /*raza = cmb_raza.SelectedText.ToString();*/
 
             string a = txt_fecha.Text;
             DateTime hoy = DateTime.Now;
 
             DateTime fecha = new DateTime();
-            
+
             fecha = DateTime.Parse(a);
-            edad = hoy.Year - fecha.Year -1;            
+            edad = hoy.Year - fecha.Year - 1;
             string x = fecha.ToString("yyyy/MM/dd");
 
             if (existe == true)
             {
                 string agregar2 = @"INSERT INTO `db_vetsnfco3`.`tb_paciente` (`nomPac`, `rutprop`, `id_especie`,`raza`, `sexopac`, `colopac`, `fechpac`, `chip`, `nchipac`, `castpac`, `celopac`, `reclpac`, `tapac`, `Malimento`, `falimentacion`, `enfprevias`, `medprevias`) 
-                                  VALUES('" + txt_NomPac.Text + "','" + txt_rutpro.Text + "','" + esp + "','" + raza + "','" + sexo + "','" + txt_color.Text + "','" + x + "','" + tchip + "','" + nchip + "','" + cast + "','" + celo + "','" + recl + "','" + ta + "','" + marca + "','" + falim + "','" + txt_enfpre.Text + "','" + txt_medact.Text + "')";
+                                  VALUES('" + txt_NomPac.Text + "','" + txt_rutpro.Text + "','" + esp + "','" + txt_raza.Text + "','" + sexo + "','" + txt_color.Text + "','" + x + "','" + tchip + "','" + nchip + "','" + cast + "','" + celo + "','" + recl + "','" + ta + "','" + marca + "','" + falim + "','" + txt_enfpre.Text + "','" + txt_medact.Text + "')";
                 if (fn.InsertarPaciente(agregar2))
                 {
                     /* Carga de listView Test*/
@@ -673,20 +512,20 @@ namespace SistemaVeterinario
                         string agregar = "INSERT INTO `db_vetsnfco3`.`tb_regtest` (`id_paciente`,`id_test`,`nomtest`) VALUES('" + prueba + "','" + indtest + "','" + notest + "')";
                         if (fn.InsertarDatosMedicos(agregar))
                         {
-                           /* MessageBox.Show("Agregado");*/
+                            /* MessageBox.Show("Agregado");*/
                         }
                         else
                         {
                             MessageBox.Show("Error al insertar Test");
                         }
                     }
-                    /* Carga de listView Vacunas*/                   
+                    /* Carga de listView Vacunas*/
                     for (int i = 0; i < lv_vacunas.Items.Count; i++)
                     {
                         string idV = lv_vacunas.Items[i].SubItems[0].Text;
                         string nom = lv_vacunas.Items[i].SubItems[1].Text;
                         DateTime fechav = new DateTime();
-                        fechav = Convert.ToDateTime(lv_vacunas.Items[i].SubItems[2].Text);                        
+                        fechav = Convert.ToDateTime(lv_vacunas.Items[i].SubItems[2].Text);
                         string f = fecha.ToString("yyyy/MM/dd");
 
                         string agregar = "INSERT INTO `db_vetsnfco3`.`tb_regvacuna` (`id_paciente`, `id_vacuna`, `nomvacuna`, `fecha_vacuna`) VALUES('" + prueba + "','" + Convert.ToInt32(idV) + "','" + nom + "','" + f + "')";
@@ -715,7 +554,7 @@ namespace SistemaVeterinario
                         {
                             MessageBox.Show("Error al insertar Desparacitacion");
                         }
-                    
+
                     }
 
                     DialogResult result = MessageBox.Show("Desea ir a Ficha medica", "Ficha medica ?", MessageBoxButtons.YesNo);
@@ -737,6 +576,25 @@ namespace SistemaVeterinario
                         ss.txt_ta.Text = ta;
                         ss.Show();
                     }
+                    else
+                    {
+                        foreach (GroupBox c in this.Controls.OfType<GroupBox>())
+                        {
+                            c.Controls.OfType<TextBox>().ToList().ForEach(t => t.Text = "");
+                        }
+                        txt_fecha.Text = string.Empty;
+                        txt_fechad.Text = string.Empty;
+                        txt_fechV.Text = string.Empty;
+                        lv_desp.Items.Clear();
+                        lv_vacunas.Items.Clear();
+                        lv_desp.Items.Clear();
+                        cmb_raza.SelectedIndex = -1;
+                        cmb_esp.SelectedIndex = -1;
+                        cmb_vac.SelectedIndex = -1;
+                        cmb_test.SelectedIndex = -1;
+                        cmb_esp.SelectedIndex = -1;
+                        cmb_cast.SelectedIndex = -1;
+                    }
                 }
                 else
                 {
@@ -749,7 +607,7 @@ namespace SistemaVeterinario
                 if (fn.InsertarPropietario(agregar))
                 {
                     /*MessageBox.Show("Agregado");*/
-                    string agregar2 = "INSERT INTO `db_vetsnfco3`.`tb_paciente` (`nomPac`, `rutprop`, `id_especie`,`raza`, `sexopac`, `colopac`, `fechpac`, `chip`, `nchipac`, `castpac`, `celopac`, `reclpac`, `tapac`) VALUES('" + txt_NomPac.Text + "','" + txt_rutpro.Text + "','" + esp + "','" + raza + "','" + sexo + "','" + txt_color.Text + "','" + x + "','" + tchip + "','" + nchip + "','" + cast + "','" + celo + "','" + recl + "','" + ta + "')";
+                    string agregar2 = "INSERT INTO `db_vetsnfco3`.`tb_paciente` (`nomPac`, `rutprop`, `id_especie`,`raza`, `sexopac`, `colopac`, `fechpac`, `chip`, `nchipac`, `castpac`, `celopac`, `reclpac`, `tapac`) VALUES('" + txt_NomPac.Text + "','" + txt_rutpro.Text + "','" + esp + "','" + txt_raza.Text + "','" + sexo + "','" + txt_color.Text + "','" + x + "','" + tchip + "','" + nchip + "','" + cast + "','" + celo + "','" + recl + "','" + ta + "')";
                     if (fn.InsertarPaciente(agregar2))
                     {
                         /* Carga de listView Test*/
@@ -815,13 +673,32 @@ namespace SistemaVeterinario
                             ss.txt_raza.Text = raza;
                             ss.txt_sexo.Text = sexo;
                             ss.txt_color.Text = txt_color.Text;
-                            ss.txt_edad.Text = edad.ToString(); 
+                            ss.txt_edad.Text = edad.ToString();
                             ss.txt_nchip.Text = nchip.ToString();
                             ss.txt_cast.Text = cast;
                             ss.txt_celo.Text = celo;
                             ss.txt_recl.Text = recl;
                             ss.txt_ta.Text = ta;
                             ss.Show();
+                        }
+                        else
+                        {
+                            foreach (GroupBox c in this.Controls.OfType<GroupBox>())
+                            {
+                                c.Controls.OfType<TextBox>().ToList().ForEach(t => t.Text = "");
+                            }
+                            txt_fecha.Text = string.Empty;
+                            txt_fechad.Text = string.Empty;
+                            txt_fechV.Text = string.Empty;
+                            lv_desp.Items.Clear();
+                            lv_vacunas.Items.Clear();
+                            lv_desp.Items.Clear();
+                            cmb_raza.SelectedIndex = -1;
+                            cmb_esp.SelectedIndex = -1;
+                            cmb_vac.SelectedIndex = -1;
+                            cmb_test.SelectedIndex = -1;
+                            cmb_esp.SelectedIndex = -1;
+                            cmb_cast.SelectedIndex = -1;
                         }
                     }
                     else
@@ -834,6 +711,210 @@ namespace SistemaVeterinario
                     MessageBox.Show("Error al insertar datos del propietario");
                 }
             }
+        }
+
+        private void pick_nuevo_Click(object sender, EventArgs e)
+        {
+            foreach (GroupBox c in this.Controls.OfType<GroupBox>())
+            {
+                c.Controls.OfType<TextBox>().ToList().ForEach(t => t.Text = "");
+            }
+            txt_fecha.Text = string.Empty;
+            txt_fechad.Text = string.Empty;
+            txt_fechV.Text = string.Empty;
+            lv_desp.Items.Clear();
+            lv_vacunas.Items.Clear();
+            lv_desp.Items.Clear();
+            cmb_raza.SelectedIndex = -1;
+            cmb_esp.SelectedIndex = -1;
+            cmb_vac.SelectedIndex = -1;
+            cmb_test.SelectedIndex = -1;
+            cmb_esp.SelectedIndex = -1;
+            cmb_cast.SelectedIndex = -1;
+        }
+
+        private void FormIngreso_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void cmb_falim_Leave(object sender, EventArgs e)
+        {
+           falim = cmb_falim.SelectedIndex.ToString();           
+        }
+
+        private void cmb_raza_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            FichaPaciente ss = new FichaPaciente();
+            ss.txt_NomPac.Text = txt_NomPac.Text;
+            ss.Show();
+        }
+
+        private void cmb_raza_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        private void txt_deuda_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)(Keys.Enter))
+            {
+                e.Handled = true;
+                SendKeys.Send("{TAB}");
+            }
+        }
+
+        
+
+        private void cmb_esp_Leave(object sender, EventArgs e)
+        {
+            string esp = cmb_esp.SelectedIndex.ToString();
+            DataTable dt = fn.LlenarCmbRaza("SELECT * FROM `tb_raza` WHERE id_especie ="+esp);
+            cmb_raza.DataSource = dt;
+            cmb_raza.ValueMember = "id_raza";
+            cmb_raza.DisplayMember = "nomraza";
+        }
+
+        private void btn_AgregaTest_Click(object sender, EventArgs e)
+        {
+            indtest = cmb_test.SelectedIndex.ToString();
+            notest = txt_test.Text;
+            /*notest = cmb_test.SelectedText.ToString();*/
+            ListViewItem lista = new ListViewItem(indtest);
+            lista.SubItems.Add(notest);
+            lv_test.Items.Add(lista);
+            cmb_test.SelectedIndex = 0;
+            
+            string test2 = txt_test.Text.ToUpper();
+            string Buscar = "SELECT * FROM tb_test WHERE `nomtest`='" + test2 + "'";
+            if (fn.BuscarRut(Buscar))
+            {
+                /*MessageBox.Show("Agregado Correctamente");*/
+            }
+            else
+            {
+                try
+                {
+                    string agregar = "INSERT INTO `db_vetsnfco3`.`tb_test` (`nomtest`,`destest`) VALUES('" + test2 + "','" + txt_test.Text + "')";
+                    if (fn.InsertarParametros(agregar))
+                    {
+                        MessageBox.Show("Agregado Correctamente");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                    return;
+                }
+            }
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            string ind = cmb_desp.SelectedIndex.ToString();
+            string indT = cmb_tipodes.SelectedIndex.ToString();
+            string desp = "",tipo="";
+            if (ind == "0")
+            {
+                desp = "Externa";
+            }
+            else {
+                desp = "Interna";
+            }
+
+            if (indT == "0")
+            {
+                tipo = "Gotas";
+            }
+            else if (indT == "1")
+            {
+                tipo = "Pastillas";
+            }
+            else
+            {
+                tipo = "No aplica";
+            }
+            string a = txt_fechad.Text;
+            DateTime fecha = new DateTime();
+            fecha = DateTime.Parse(a);
+            string x = fecha.ToString("yyyy/MM/dd");
+            ListViewItem item = new ListViewItem();
+            item = lv_desp.Items.Add(ind);
+            item.SubItems.Add(desp);
+            item.SubItems.Add(x);
+            item.SubItems.Add(tipo);
+            item.SubItems.Add(txt_nomdesp.Text);
+            cmb_tipodes.SelectedIndex = -1;
+            txt_nomdesp.Text = "";
+            txt_fechad.Text = "";
+            cmb_desp.SelectedIndex = -1;          
+        }
+
+        private void salirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void nuevoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void FormIngreso_Load(object sender, EventArgs e)
+        {
+            toolback.SetToolTip(this.pick_back, "Vuelve al menú");
+            toolnuevo.SetToolTip(this.pick_nuevo, "Vuelve al menú");
+            toolGuardar.SetToolTip(this.pick_guardar, "Vuelve al menú");
+
+            bool conectado = fn.conectar();
+            if (conectado)
+            {
+               /* MessageBox.Show("Conectado");*/
+            }
+            else
+            {
+                MessageBox.Show("Error al conectar");
+            }
+            /* 	*/
+            DataTable dt = fn.LlenarCmb("SELECT id_especie, nomespecie FROM tb_especie");
+            cmb_esp.DataSource = dt;
+            cmb_esp.ValueMember = "id_especie";
+            cmb_esp.DisplayMember = "nomespecie";
+            cmb_esp.SelectedIndex = -1;
+
+            DataTable dtV = fn.LlenarCmb("SELECT id_vacuna, nomvacuna FROM tb_vacunas");
+            cmb_vac.DataSource = dtV;
+            cmb_vac.ValueMember = "id_vacuna";
+            cmb_vac.DisplayMember = "nomvacuna";
+            cmb_vac.SelectedIndex = -1;
+
+            DataTable dtT = fn.LlenarCmb("SELECT id_test, nomtest FROM tb_test");
+            cmb_test.DataSource = dtT;
+            cmb_test.ValueMember = "id_test";
+            cmb_test.DisplayMember = "nomtest";
+            cmb_test.SelectedIndex = -1;
+
+            prueba = fn.A();
+            prueba = prueba + 1;
+            label28.Text = prueba.ToString();
+
+            txt_deuda.Text = "0";
+        }
+
+        private void guardarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
             
         }
 

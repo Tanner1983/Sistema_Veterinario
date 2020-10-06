@@ -19,6 +19,8 @@ namespace SistemaVeterinario
         Funciones fn = new Funciones();
         DataTable fichas = new DataTable();
 
+        string id="";
+
         private void DetalleClientes_Load(object sender, EventArgs e)
         {
             toolback.SetToolTip(this.pick_back, "Vuelve al menú");
@@ -29,7 +31,7 @@ namespace SistemaVeterinario
             try
             {
                 DataTable dt = fn.ObtenerDatos("SELECT * FROM tb_propietario WHERE rutprop='" + rut + "'");               
-
+                id = Convert.ToString((int)dt.Rows[0][0]); 
                 txt_nompro.Text = (string)dt.Rows[0][2];
                 txt_email.Text = (string)dt.Rows[0][3];
                 txt_dir.Text = (string)dt.Rows[0][4];
@@ -72,12 +74,43 @@ namespace SistemaVeterinario
                 DialogResult result2 = MessageBox.Show("Si elimina los datos del cliente, se eliminan sus mascotas, Esta seguro?", "Eliminar Cliente ?", MessageBoxButtons.YesNo);
                 if (result2 == DialogResult.Yes)
                 {
-                    MessageBox.Show("Cliente eliminado correctamente");
+                    string eliminar = "DELETE FROM tb_propietario where id_prop ='" + id + "'";
+                    if (fn.Eliminar(eliminar))
+                    {
+                        MessageBox.Show("Cliente eliminado correctamente");
+                        this.Hide();
+                        Fichas ss = new Fichas();
+                        ss.btn_select.Visible = false;
+                        ss.btn_selectVacuna.Visible = false;
+                        ss.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al Eliminar cliente");
+                    }
+                    
+                }
+            }
+        }
+
+        private void pickEditar_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Desea Guardar los cambios", "Modificar Cliente ?", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                string modificar = "UPDATE tb_propietario SET nomprop='" + txt_nompro.Text + "', mailprop='" + txt_email.Text + "', dirprop='" + txt_dir.Text + "', comunprop='" + txt_comun.Text + "', fonoprop='" + txt_fono.Text + "', rdeuda='" + txt_deuda.Text + "' WHERE id_prop ='" + id + "'";
+                if (fn.Modificar(modificar))
+                {
+                    MessageBox.Show("Cliente modificado correctamente");
                     this.Hide();
                     Fichas ss = new Fichas();
                     ss.btn_select.Visible = false;
                     ss.btn_selectVacuna.Visible = false;
                     ss.Show();
+                }            
+                else
+                {
+                    MessageBox.Show("Error al Modificar cliente");
                 }
             }
         }

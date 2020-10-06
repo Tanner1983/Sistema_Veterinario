@@ -117,55 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="errorProvider1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>156, 24</value>
+  <metadata name="toolguardar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
   </metadata>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="pick_nuevo.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        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
-        gg==
-</value>
-  </data>
-  <metadata name="toolback.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>311, 24</value>
-  </metadata>
-  <metadata name="toolnuevo.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>426, 24</value>
-  </metadata>
-  <metadata name="toolGuardar.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>552, 24</value>
+  <metadata name="toolBack.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>154, 17</value>
   </metadata>
 </root>

@@ -37,6 +37,7 @@
             this.btn_clientes = new System.Windows.Forms.Button();
             this.pick_back = new System.Windows.Forms.PictureBox();
             this.toolBack = new System.Windows.Forms.ToolTip(this.components);
+            this.btn_selectconsulta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_Fichas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pick_back)).BeginInit();
             this.SuspendLayout();
@@ -88,7 +89,7 @@
             this.btn_detalle.Name = "btn_detalle";
             this.btn_detalle.Size = new System.Drawing.Size(100, 33);
             this.btn_detalle.TabIndex = 6;
-            this.btn_detalle.Text = "Ver detalle";
+            this.btn_detalle.Text = "Ver Mascota";
             this.btn_detalle.UseVisualStyleBackColor = true;
             this.btn_detalle.Click += new System.EventHandler(this.btn_detalle_Click);
             // 
@@ -113,11 +114,22 @@
             this.pick_back.TabStop = false;
             this.pick_back.Click += new System.EventHandler(this.pick_back_Click);
             // 
+            // btn_selectconsulta
+            // 
+            this.btn_selectconsulta.Location = new System.Drawing.Point(192, 26);
+            this.btn_selectconsulta.Name = "btn_selectconsulta";
+            this.btn_selectconsulta.Size = new System.Drawing.Size(100, 33);
+            this.btn_selectconsulta.TabIndex = 117;
+            this.btn_selectconsulta.Text = "Seleccionar";
+            this.btn_selectconsulta.UseVisualStyleBackColor = true;
+            this.btn_selectconsulta.Click += new System.EventHandler(this.btn_selectconsulta_Click);
+            // 
             // Fichas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1114, 532);
+            this.Controls.Add(this.btn_selectconsulta);
             this.Controls.Add(this.pick_back);
             this.Controls.Add(this.btn_clientes);
             this.Controls.Add(this.btn_detalle);
@@ -144,5 +156,6 @@
         public System.Windows.Forms.Button btn_clientes;
         private System.Windows.Forms.PictureBox pick_back;
         private System.Windows.Forms.ToolTip toolBack;
+        public System.Windows.Forms.Button btn_selectconsulta;
     }
 }

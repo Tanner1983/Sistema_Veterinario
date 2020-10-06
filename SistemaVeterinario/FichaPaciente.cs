@@ -110,6 +110,7 @@ namespace SistemaVeterinario
         {
             this.Hide();
             Fichas ss = new Fichas();
+            ss.btn_selectconsulta.Visible = false;
             ss.btn_selectVacuna.Visible = false;
             ss.btn_select.Visible = true;
             ss.Show();
@@ -193,7 +194,7 @@ namespace SistemaVeterinario
                 else
                 {
                     this.Hide();
-                    Fichas ss = new Fichas();
+                    Menu ss = new Menu();
                     ss.Show();
                 }
             }
@@ -201,6 +202,13 @@ namespace SistemaVeterinario
             {
                 MessageBox.Show("Error al insertar datos del Paciente");
             }
+        }
+
+        private void txt_anam_TextChanged(object sender, EventArgs e)
+        {
+            string texto = txt_anam.Text;
+            int caracter = texto.Length;
+            lbl_am.Text = "(" + (caracter.ToString()) + ")";
         }
 
         private void txt_id_KeyPress(object sender, KeyPressEventArgs e)

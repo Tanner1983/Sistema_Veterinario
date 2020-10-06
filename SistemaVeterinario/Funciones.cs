@@ -283,6 +283,38 @@ namespace SistemaVeterinario
             return validado;
         }
 
+        public bool Eliminar(string consulta)
+        {
+            bool eliminado = false;
+            int rows = 0;
+            con.Open();
+            cmd = new MySqlCommand(consulta, con);
+            rows = cmd.ExecuteNonQuery();
+
+            if (rows > 0)
+            {
+                eliminado = true;
+            }
+            con.Close();
+            return eliminado;
+        }
+
+        public bool Modificar(string consulta)
+        {
+            bool modificar = false;
+            int rows = 0;
+            con.Open();
+            cmd = new MySqlCommand(consulta, con);
+            rows = cmd.ExecuteNonQuery();
+
+            if (rows > 0)
+            {
+                modificar = true;
+            }
+            con.Close();
+            return modificar;
+        }
+
     }
         
 }

@@ -50,6 +50,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.lbl_id = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.txt_fa = new System.Windows.Forms.TextBox();
             this.txt_ta = new System.Windows.Forms.TextBox();
             this.txt_rcl = new System.Windows.Forms.TextBox();
@@ -88,6 +89,8 @@
             this.toolBack = new System.Windows.Forms.ToolTip(this.components);
             this.pickEditar = new System.Windows.Forms.PictureBox();
             this.pick_eliminar = new System.Windows.Forms.PictureBox();
+            this.toolmodificar = new System.Windows.Forms.ToolTip(this.components);
+            this.tooleliminar = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -280,6 +283,7 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.txt_fa);
             this.groupBox2.Controls.Add(this.txt_ta);
             this.groupBox2.Controls.Add(this.txt_rcl);
@@ -318,6 +322,15 @@
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Paciente";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(827, 114);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(207, 17);
+            this.label3.TabIndex = 99;
+            this.label3.Text = "1- 2 - 3 - 0 (es mas de 3 veces)";
             // 
             // txt_fa
             // 
@@ -453,7 +466,6 @@
             this.lbl_marca.Size = new System.Drawing.Size(47, 17);
             this.lbl_marca.TabIndex = 81;
             this.lbl_marca.Text = "Marca";
-            this.lbl_marca.Visible = false;
             // 
             // label19
             // 
@@ -497,6 +509,8 @@
             this.txt_nchip.Name = "txt_nchip";
             this.txt_nchip.Size = new System.Drawing.Size(146, 22);
             this.txt_nchip.TabIndex = 45;
+            this.txt_nchip.TextChanged += new System.EventHandler(this.txt_nchip_TextChanged);
+            this.txt_nchip.Leave += new System.EventHandler(this.txt_nchip_Leave);
             // 
             // label4
             // 
@@ -626,6 +640,7 @@
             this.pickEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pickEditar.TabIndex = 120;
             this.pickEditar.TabStop = false;
+            this.pickEditar.Click += new System.EventHandler(this.pickEditar_Click);
             // 
             // pick_eliminar
             // 
@@ -730,5 +745,8 @@
         private System.Windows.Forms.ToolTip toolBack;
         private System.Windows.Forms.PictureBox pickEditar;
         private System.Windows.Forms.PictureBox pick_eliminar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ToolTip toolmodificar;
+        private System.Windows.Forms.ToolTip tooleliminar;
     }
 }

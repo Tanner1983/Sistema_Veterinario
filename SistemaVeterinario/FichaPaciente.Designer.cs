@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.txt_marca = new System.Windows.Forms.TextBox();
             this.pick_cargar = new System.Windows.Forms.PictureBox();
             this.pick_buscar = new System.Windows.Forms.PictureBox();
             this.txt_ep = new System.Windows.Forms.TextBox();
@@ -166,7 +167,6 @@
             this.toolcargar = new System.Windows.Forms.ToolTip(this.components);
             this.toolvolver = new System.Windows.Forms.ToolTip(this.components);
             this.toolsave = new System.Windows.Forms.ToolTip(this.components);
-            this.txt_marca = new System.Windows.Forms.TextBox();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pick_cargar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pick_buscar)).BeginInit();
@@ -227,6 +227,13 @@
             this.groupBox2.TabIndex = 59;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Paciente";
+            // 
+            // txt_marca
+            // 
+            this.txt_marca.Location = new System.Drawing.Point(874, 129);
+            this.txt_marca.Name = "txt_marca";
+            this.txt_marca.Size = new System.Drawing.Size(104, 22);
+            this.txt_marca.TabIndex = 114;
             // 
             // pick_cargar
             // 
@@ -562,6 +569,7 @@
             this.txt_anam.Name = "txt_anam";
             this.txt_anam.Size = new System.Drawing.Size(450, 84);
             this.txt_anam.TabIndex = 108;
+            this.txt_anam.TextChanged += new System.EventHandler(this.txt_anam_TextChanged);
             // 
             // Lbl_Obs
             // 
@@ -1578,13 +1586,6 @@
             this.toolsave.AutoPopDelay = 5000;
             this.toolsave.InitialDelay = 1000;
             this.toolsave.ReshowDelay = 500;
-            // 
-            // txt_marca
-            // 
-            this.txt_marca.Location = new System.Drawing.Point(874, 129);
-            this.txt_marca.Name = "txt_marca";
-            this.txt_marca.Size = new System.Drawing.Size(104, 22);
-            this.txt_marca.TabIndex = 114;
             // 
             // FichaPaciente
             // 

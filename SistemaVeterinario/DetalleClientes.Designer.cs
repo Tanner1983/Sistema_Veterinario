@@ -268,6 +268,7 @@
             this.pickEditar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pickEditar.TabIndex = 118;
             this.pickEditar.TabStop = false;
+            this.pickEditar.Click += new System.EventHandler(this.pickEditar_Click);
             // 
             // pick_eliminar
             // 

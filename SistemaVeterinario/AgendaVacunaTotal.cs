@@ -49,6 +49,7 @@ namespace SistemaVeterinario
         {
             this.Hide();
             Fichas ss = new Fichas();
+            ss.btn_selectconsulta.Visible = false;
             ss.btn_selectVacuna.Visible = true;
             ss.btn_select.Visible = false;
             ss.Show();

@@ -95,5 +95,16 @@ namespace SistemaVeterinario
             Menu ss = new Menu();
             ss.Show();
         }
+
+        private void btn_selectconsulta_Click(object sender, EventArgs e)
+        {
+            Nombre = dtg_Fichas.CurrentRow.Cells[0].Value.ToString();
+            this.Hide();
+            AgendaConsulta ss = new AgendaConsulta();
+            ss.txt_id.Text = Nombre;
+            ss.txt_id.Select();
+            ss.btn_buscar.Visible = false;
+            ss.Show();
+        }
     }
 }

@@ -37,6 +37,13 @@ namespace SistemaVeterinario
             Menu ss = new Menu();
             ss.Show();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            AgendaConsulta ss = new AgendaConsulta();
+            ss.Show();
+        }
     }
 }
     
