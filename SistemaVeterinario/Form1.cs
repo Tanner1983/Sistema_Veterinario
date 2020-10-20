@@ -20,7 +20,7 @@ namespace SistemaVeterinario
         }
         Funciones fn = new Funciones();
         string raza = "", falim="", sexo = "", tchip="", conv = "", cast="", celo="", ta="",recl="", marca = "", notest="",indtest="", nomvacuna=""; /*Variable comboBox*/
-        int prueba = 0, deuda=0, edad=0;
+        int prueba = 0, deuda=0, edad=0,indice = 1;
         bool existe;
         private void textBox13_Click(object sender, EventArgs e)
         {
@@ -582,18 +582,16 @@ namespace SistemaVeterinario
                         {
                             c.Controls.OfType<TextBox>().ToList().ForEach(t => t.Text = "");
                         }
+                        foreach (GroupBox co in this.Controls.OfType<GroupBox>())
+                        {
+                            co.Controls.OfType<ComboBox>().ToList().ForEach(t => t.SelectedIndex = -1);
+                        }
                         txt_fecha.Text = string.Empty;
                         txt_fechad.Text = string.Empty;
                         txt_fechV.Text = string.Empty;
-                        lv_desp.Items.Clear();
+                        lv_test.Items.Clear();
                         lv_vacunas.Items.Clear();
                         lv_desp.Items.Clear();
-                        cmb_raza.SelectedIndex = -1;
-                        cmb_esp.SelectedIndex = -1;
-                        cmb_vac.SelectedIndex = -1;
-                        cmb_test.SelectedIndex = -1;
-                        cmb_esp.SelectedIndex = -1;
-                        cmb_cast.SelectedIndex = -1;
                     }
                 }
                 else
@@ -719,18 +717,24 @@ namespace SistemaVeterinario
             {
                 c.Controls.OfType<TextBox>().ToList().ForEach(t => t.Text = "");
             }
+            foreach (GroupBox co in this.Controls.OfType<GroupBox>())
+            {
+                co.Controls.OfType<ComboBox>().ToList().ForEach(t => t.SelectedIndex = -1);
+            }
             txt_fecha.Text = string.Empty;
             txt_fechad.Text = string.Empty;
             txt_fechV.Text = string.Empty;
-            lv_desp.Items.Clear();
+            lv_test.Items.Clear();
             lv_vacunas.Items.Clear();
             lv_desp.Items.Clear();
-            cmb_raza.SelectedIndex = -1;
-            cmb_esp.SelectedIndex = -1;
-            cmb_vac.SelectedIndex = -1;
-            cmb_test.SelectedIndex = -1;
-            cmb_esp.SelectedIndex = -1;
-            cmb_cast.SelectedIndex = -1;
+            txt_nompro.ReadOnly = false;
+            txt_email.ReadOnly = false;
+            txt_dir.ReadOnly = false;
+            txt_comun.ReadOnly = false;
+            txt_fono.ReadOnly = false;
+            txt_deuda.ReadOnly = false;
+            cmb_con.Enabled = true;
+
         }
 
         private void FormIngreso_FormClosing(object sender, FormClosingEventArgs e)
@@ -786,14 +790,15 @@ namespace SistemaVeterinario
         }
 
         private void btn_AgregaTest_Click(object sender, EventArgs e)
-        {
-            indtest = cmb_test.SelectedIndex.ToString();
+        {            
+            indtest = indice.ToString();
             notest = txt_test.Text;
             /*notest = cmb_test.SelectedText.ToString();*/
             ListViewItem lista = new ListViewItem(indtest);
             lista.SubItems.Add(notest);
             lv_test.Items.Add(lista);
             cmb_test.SelectedIndex = 0;
+            indice +=1;
             
             string test2 = txt_test.Text.ToUpper();
             string Buscar = "SELECT * FROM tb_test WHERE `nomtest`='" + test2 + "'";
@@ -874,8 +879,8 @@ namespace SistemaVeterinario
         private void FormIngreso_Load(object sender, EventArgs e)
         {
             toolback.SetToolTip(this.pick_back, "Vuelve al menú");
-            toolnuevo.SetToolTip(this.pick_nuevo, "Vuelve al menú");
-            toolGuardar.SetToolTip(this.pick_guardar, "Vuelve al menú");
+            toolnuevo.SetToolTip(this.pick_nuevo, "Crea un Nuevo paciente");
+            toolGuardar.SetToolTip(this.pick_guardar, "Guarda los datos");
 
             bool conectado = fn.conectar();
             if (conectado)
@@ -964,6 +969,7 @@ namespace SistemaVeterinario
                 txt_comun.ReadOnly = true;
                 txt_fono.ReadOnly = true;
                 txt_deuda.ReadOnly = true;
+                cmb_con.Enabled = false;
             }
             else
             {

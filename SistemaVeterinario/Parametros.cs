@@ -163,5 +163,12 @@ namespace SistemaVeterinario
                 MessageBox.Show("Error al insertar nueva Vacuna");
             }
         }
+
+        private void volverAlMenúToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Menu ss = new Menu();
+            ss.Show();
+        }
     }
 }

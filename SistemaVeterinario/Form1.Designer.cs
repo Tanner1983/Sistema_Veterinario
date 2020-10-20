@@ -50,6 +50,7 @@
             this.txt_nompro = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.cmb_test = new System.Windows.Forms.ComboBox();
             this.txt_raza = new System.Windows.Forms.TextBox();
             this.cmb_cro = new System.Windows.Forms.ComboBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -123,7 +124,6 @@
             this.pick_nuevo = new System.Windows.Forms.PictureBox();
             this.toolnuevo = new System.Windows.Forms.ToolTip(this.components);
             this.toolGuardar = new System.Windows.Forms.ToolTip(this.components);
-            this.cmb_test = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -369,12 +369,21 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Datos Paciente";
             // 
+            // cmb_test
+            // 
+            this.cmb_test.FormattingEnabled = true;
+            this.cmb_test.Location = new System.Drawing.Point(609, 19);
+            this.cmb_test.Name = "cmb_test";
+            this.cmb_test.Size = new System.Drawing.Size(121, 24);
+            this.cmb_test.TabIndex = 92;
+            this.cmb_test.Visible = false;
+            // 
             // txt_raza
             // 
             this.txt_raza.Location = new System.Drawing.Point(651, 49);
             this.txt_raza.Name = "txt_raza";
             this.txt_raza.Size = new System.Drawing.Size(192, 22);
-            this.txt_raza.TabIndex = 91;
+            this.txt_raza.TabIndex = 40;
             // 
             // cmb_cro
             // 
@@ -1053,15 +1062,6 @@
             this.pick_nuevo.TabIndex = 117;
             this.pick_nuevo.TabStop = false;
             this.pick_nuevo.Click += new System.EventHandler(this.pick_nuevo_Click);
-            // 
-            // cmb_test
-            // 
-            this.cmb_test.FormattingEnabled = true;
-            this.cmb_test.Location = new System.Drawing.Point(609, 19);
-            this.cmb_test.Name = "cmb_test";
-            this.cmb_test.Size = new System.Drawing.Size(121, 24);
-            this.cmb_test.TabIndex = 92;
-            this.cmb_test.Visible = false;
             // 
             // FormIngreso
             // 

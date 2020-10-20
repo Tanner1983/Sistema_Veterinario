@@ -44,6 +44,13 @@ namespace SistemaVeterinario
             AgendaConsulta ss = new AgendaConsulta();
             ss.Show();
         }
+
+        private void btn_verAgenda_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            VerAgenda ss = new VerAgenda();
+            ss.Show();
+        }
     }
 }
     

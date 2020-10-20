@@ -144,6 +144,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VerAgenda.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VerAgenda.Designer.cs">
+      <DependentUpon>VerAgenda.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Agenda.resx">
       <DependentUpon>Agenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -193,6 +199,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="VerAgenda.resx">
+      <DependentUpon>VerAgenda.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -253,6 +262,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\notes_edit_modify_icon_143729.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\check_home_equity_real_estate_ok_mark_icon-icons.com_69050.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

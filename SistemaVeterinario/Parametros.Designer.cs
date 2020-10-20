@@ -34,7 +34,6 @@
             this.editarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eliminarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vacunasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.agregarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.editarToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -80,6 +79,8 @@
             this.button6 = new System.Windows.Forms.Button();
             this.txt_nomTest = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.volverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.volverAlMenúToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -94,7 +95,8 @@
             this.razasToolStripMenuItem,
             this.vacunasToolStripMenuItem,
             this.desparasitacionToolStripMenuItem,
-            this.testToolStripMenuItem});
+            this.testToolStripMenuItem,
+            this.volverToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(458, 28);
@@ -107,8 +109,7 @@
             this.agregarToolStripMenuItem,
             this.editarToolStripMenuItem,
             this.eliminarToolStripMenuItem,
-            this.verToolStripMenuItem,
-            this.salirToolStripMenuItem});
+            this.verToolStripMenuItem});
             this.razasToolStripMenuItem.Name = "razasToolStripMenuItem";
             this.razasToolStripMenuItem.Size = new System.Drawing.Size(59, 24);
             this.razasToolStripMenuItem.Text = "Razas";
@@ -116,34 +117,27 @@
             // agregarToolStripMenuItem
             // 
             this.agregarToolStripMenuItem.Name = "agregarToolStripMenuItem";
-            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.agregarToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.agregarToolStripMenuItem.Text = "Agregar";
             this.agregarToolStripMenuItem.Click += new System.EventHandler(this.agregarToolStripMenuItem_Click);
             // 
             // editarToolStripMenuItem
             // 
             this.editarToolStripMenuItem.Name = "editarToolStripMenuItem";
-            this.editarToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.editarToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.editarToolStripMenuItem.Text = "Editar";
             // 
             // eliminarToolStripMenuItem
             // 
             this.eliminarToolStripMenuItem.Name = "eliminarToolStripMenuItem";
-            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.eliminarToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.eliminarToolStripMenuItem.Text = "Eliminar";
             // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            this.verToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
+            this.verToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
             this.verToolStripMenuItem.Text = "Ver ";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(138, 26);
-            this.salirToolStripMenuItem.Text = "Salir";
-            this.salirToolStripMenuItem.Click += new System.EventHandler(this.salirToolStripMenuItem_Click);
             // 
             // vacunasToolStripMenuItem
             // 
@@ -550,6 +544,21 @@
             this.label8.TabIndex = 0;
             this.label8.Text = "Nombre";
             // 
+            // volverToolStripMenuItem
+            // 
+            this.volverToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.volverAlMenúToolStripMenuItem});
+            this.volverToolStripMenuItem.Name = "volverToolStripMenuItem";
+            this.volverToolStripMenuItem.Size = new System.Drawing.Size(50, 24);
+            this.volverToolStripMenuItem.Text = "Salir";
+            // 
+            // volverAlMenúToolStripMenuItem
+            // 
+            this.volverAlMenúToolStripMenuItem.Name = "volverAlMenúToolStripMenuItem";
+            this.volverAlMenúToolStripMenuItem.Size = new System.Drawing.Size(181, 26);
+            this.volverAlMenúToolStripMenuItem.Text = "Volver";
+            this.volverAlMenúToolStripMenuItem.Click += new System.EventHandler(this.volverAlMenúToolStripMenuItem_Click);
+            // 
             // Parametros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -594,7 +603,6 @@
         private System.Windows.Forms.Button btn_agregar;
         private System.Windows.Forms.TextBox txt_raza;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ToolStripMenuItem salirToolStripMenuItem;
         private System.Windows.Forms.Button btn_volver;
         private System.Windows.Forms.ToolStripMenuItem vacunasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem agregarToolStripMenuItem1;
@@ -634,5 +642,7 @@
         private System.Windows.Forms.TextBox txt_tipo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox txt_des;
+        private System.Windows.Forms.ToolStripMenuItem volverToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem volverAlMenúToolStripMenuItem;
     }
 }

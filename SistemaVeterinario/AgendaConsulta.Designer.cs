@@ -30,6 +30,15 @@
         {
             this.components = new System.ComponentModel.Container();
             this.AgConsulta = new System.Windows.Forms.GroupBox();
+            this.pick_guardar = new System.Windows.Forms.PictureBox();
+            this.pick_back = new System.Windows.Forms.PictureBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txt_fono = new System.Windows.Forms.TextBox();
+            this.txt_mail = new System.Windows.Forms.TextBox();
+            this.txt_nombreP = new System.Windows.Forms.TextBox();
             this.txt_obs = new System.Windows.Forms.TextBox();
             this.btn_buscar = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -41,20 +50,11 @@
             this.calendario = new System.Windows.Forms.MonthCalendar();
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.txt_id = new System.Windows.Forms.TextBox();
-            this.txt_nombreP = new System.Windows.Forms.TextBox();
-            this.txt_mail = new System.Windows.Forms.TextBox();
-            this.txt_fono = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.pick_back = new System.Windows.Forms.PictureBox();
-            this.pick_guardar = new System.Windows.Forms.PictureBox();
             this.toolguardar = new System.Windows.Forms.ToolTip(this.components);
             this.toolBack = new System.Windows.Forms.ToolTip(this.components);
             this.AgConsulta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pick_back)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pick_guardar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pick_back)).BeginInit();
             this.SuspendLayout();
             // 
             // AgConsulta
@@ -85,6 +85,85 @@
             this.AgConsulta.TabIndex = 1;
             this.AgConsulta.TabStop = false;
             this.AgConsulta.Text = "Agendamiento de Consulta";
+            // 
+            // pick_guardar
+            // 
+            this.pick_guardar.Image = global::SistemaVeterinario.Properties.Resources.save_78935;
+            this.pick_guardar.Location = new System.Drawing.Point(383, 366);
+            this.pick_guardar.Name = "pick_guardar";
+            this.pick_guardar.Size = new System.Drawing.Size(54, 46);
+            this.pick_guardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pick_guardar.TabIndex = 117;
+            this.pick_guardar.TabStop = false;
+            this.pick_guardar.Click += new System.EventHandler(this.pick_guardar_Click);
+            // 
+            // pick_back
+            // 
+            this.pick_back.Image = global::SistemaVeterinario.Properties.Resources.arrow_left_icon_151610;
+            this.pick_back.Location = new System.Drawing.Point(471, 366);
+            this.pick_back.Name = "pick_back";
+            this.pick_back.Size = new System.Drawing.Size(54, 46);
+            this.pick_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pick_back.TabIndex = 116;
+            this.pick_back.TabStop = false;
+            this.pick_back.Click += new System.EventHandler(this.pick_back_Click);
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(9, 126);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(88, 17);
+            this.label8.TabIndex = 40;
+            this.label8.Text = "Observacion";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(9, 98);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(47, 17);
+            this.label7.TabIndex = 39;
+            this.label7.Text = "E-mail";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(272, 70);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 17);
+            this.label4.TabIndex = 38;
+            this.label4.Text = "Telefono";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(9, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(50, 17);
+            this.label2.TabIndex = 37;
+            this.label2.Text = "Dueño";
+            // 
+            // txt_fono
+            // 
+            this.txt_fono.Location = new System.Drawing.Point(343, 68);
+            this.txt_fono.Name = "txt_fono";
+            this.txt_fono.Size = new System.Drawing.Size(121, 22);
+            this.txt_fono.TabIndex = 36;
+            // 
+            // txt_mail
+            // 
+            this.txt_mail.Location = new System.Drawing.Point(103, 95);
+            this.txt_mail.Name = "txt_mail";
+            this.txt_mail.Size = new System.Drawing.Size(167, 22);
+            this.txt_mail.TabIndex = 35;
+            // 
+            // txt_nombreP
+            // 
+            this.txt_nombreP.Location = new System.Drawing.Point(103, 67);
+            this.txt_nombreP.Name = "txt_nombreP";
+            this.txt_nombreP.Size = new System.Drawing.Size(121, 22);
+            this.txt_nombreP.TabIndex = 34;
             // 
             // txt_obs
             // 
@@ -160,10 +239,11 @@
             this.calendario.Location = new System.Drawing.Point(12, 205);
             this.calendario.Name = "calendario";
             this.calendario.TabIndex = 21;
+            this.calendario.Leave += new System.EventHandler(this.calendario_Leave);
             // 
             // txt_nombre
             // 
-            this.txt_nombre.Location = new System.Drawing.Point(334, 40);
+            this.txt_nombre.Location = new System.Drawing.Point(343, 40);
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(121, 22);
             this.txt_nombre.TabIndex = 19;
@@ -177,83 +257,6 @@
             this.txt_id.TabIndex = 18;
             this.txt_id.Leave += new System.EventHandler(this.txt_id_Leave);
             // 
-            // txt_nombreP
-            // 
-            this.txt_nombreP.Location = new System.Drawing.Point(103, 67);
-            this.txt_nombreP.Name = "txt_nombreP";
-            this.txt_nombreP.Size = new System.Drawing.Size(121, 22);
-            this.txt_nombreP.TabIndex = 34;
-            // 
-            // txt_mail
-            // 
-            this.txt_mail.Location = new System.Drawing.Point(103, 95);
-            this.txt_mail.Name = "txt_mail";
-            this.txt_mail.Size = new System.Drawing.Size(167, 22);
-            this.txt_mail.TabIndex = 35;
-            // 
-            // txt_fono
-            // 
-            this.txt_fono.Location = new System.Drawing.Point(334, 68);
-            this.txt_fono.Name = "txt_fono";
-            this.txt_fono.Size = new System.Drawing.Size(121, 22);
-            this.txt_fono.TabIndex = 36;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(9, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(50, 17);
-            this.label2.TabIndex = 37;
-            this.label2.Text = "Dueño";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(272, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 17);
-            this.label4.TabIndex = 38;
-            this.label4.Text = "Telefono";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(9, 98);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 17);
-            this.label7.TabIndex = 39;
-            this.label7.Text = "E-mail";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(9, 126);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(88, 17);
-            this.label8.TabIndex = 40;
-            this.label8.Text = "Observacion";
-            // 
-            // pick_back
-            // 
-            this.pick_back.Image = global::SistemaVeterinario.Properties.Resources.arrow_left_icon_151610;
-            this.pick_back.Location = new System.Drawing.Point(471, 366);
-            this.pick_back.Name = "pick_back";
-            this.pick_back.Size = new System.Drawing.Size(54, 46);
-            this.pick_back.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pick_back.TabIndex = 116;
-            this.pick_back.TabStop = false;
-            // 
-            // pick_guardar
-            // 
-            this.pick_guardar.Image = global::SistemaVeterinario.Properties.Resources.save_78935;
-            this.pick_guardar.Location = new System.Drawing.Point(383, 366);
-            this.pick_guardar.Name = "pick_guardar";
-            this.pick_guardar.Size = new System.Drawing.Size(54, 46);
-            this.pick_guardar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pick_guardar.TabIndex = 117;
-            this.pick_guardar.TabStop = false;
-            // 
             // AgendaConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -262,12 +265,13 @@
             this.ClientSize = new System.Drawing.Size(575, 443);
             this.Controls.Add(this.AgConsulta);
             this.Name = "AgendaConsulta";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "AgendaConsulta";
             this.Load += new System.EventHandler(this.AgendaConsulta_Load);
             this.AgConsulta.ResumeLayout(false);
             this.AgConsulta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pick_back)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pick_guardar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pick_back)).EndInit();
             this.ResumeLayout(false);
 
         }

@@ -113,6 +113,16 @@ namespace SistemaVeterinario.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap check_home_equity_real_estate_ok_mark_icon_icons_com_69050 {
+            get {
+                object obj = ResourceManager.GetObject("check_home_equity_real_estate_ok_mark_icon-icons.com_69050", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap gato {
             get {
                 object obj = ResourceManager.GetObject("gato", resourceCulture);

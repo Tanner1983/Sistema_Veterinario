@@ -44,5 +44,59 @@ namespace SistemaVeterinario
             toolBack.SetToolTip(this.pick_back, "Vuelve al menú");
             toolguardar.SetToolTip(this.pick_guardar, "Agendar Consulta");
         }
+
+        private void pick_back_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Agenda ss = new Agenda();
+            ss.Show();
+        }
+
+        private void pick_guardar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                DateTime fecha = new DateTime();
+                fecha = DateTime.Parse(txt_fecha.Text);
+                string x = fecha.ToString("yyyy/MM/dd");
+
+                DateTime hora = new DateTime();
+                hora = DateTime.Parse(msktxt_hora.Text);
+                string h = hora.ToString("hh:mm:ss");
+
+                string revisar = "SELECT `id_consulta`,`fconsulta`,`hconsulta` FROM tb_agendaconsulta WHERE `fconsulta`='" + x + "'AND `hconsulta`='" + h + "'";
+                if (fn.ValidarFecha(revisar))
+                {
+                    MessageBox.Show("Hora ya registrada");
+                }
+                else
+                {
+                    string agregar = "INSERT INTO `db_vetsnfco3`.`tb_agendaconsulta` (`id_paciente`,`nompac`,`fconsulta`,`hconsulta`,`desconsulta`) VALUES('" + id + "','" + txt_nombre.Text + "','" + x + "','" + h + "','" + txt_obs.Text + "')";
+                    if (fn.InsertarPropietario(agregar))
+                    {
+                        MessageBox.Show("Agendado");
+                        this.Hide();
+                        Agenda ss = new Agenda();
+                        ss.Show();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Error al agendar la hora");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+            
+        
+
+        private void calendario_Leave(object sender, EventArgs e)
+        {
+            txt_fecha.Text = calendario.SelectionRange.Start.ToShortDateString();
+        }
     }
 }
